@@ -1,4 +1,4 @@
-﻿using Svg2Gcode.Spatial;
+﻿using Dalby.Maths.Geometry;
 using Svg2Gcode.Svg;
 
 namespace Svg2Gcode.Tools
@@ -24,14 +24,14 @@ namespace Svg2Gcode.Tools
                     
                     
                     
-                    foreach (Path2D p in maskTree.Intersect(path))
-                    {
-                        output.Elements.Add(p);
-                    }
+                    //foreach (Path2D p in maskTree.Intersect(path))
+                    //{
+                    //    output.Elements.Add(p);
+                    //}
                 }
                 maskTree.AddShape(shape);
             }
-
+            throw new NotImplementedException();
         }
     }
 
@@ -43,6 +43,11 @@ namespace Svg2Gcode.Tools
         }
 
         public IEnumerable<Path2D> Intersect(Path2D path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Intersects(Shape shape)
         {
             throw new NotImplementedException();
         }

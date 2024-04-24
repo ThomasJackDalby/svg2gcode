@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Utils\Utils.csproj" />
+    <ProjectReference Include="..\GCode\GCode\GCode.csproj" />
+    <ProjectReference Include="..\GCode\Utilities\Dalby.Common\Dalby.Common.csproj" />
+    <ProjectReference Include="..\GCode\Utilities\Dalby.Maths\Dalby.Maths.csproj" />
   </ItemGroup>
 
   <ItemGroup>

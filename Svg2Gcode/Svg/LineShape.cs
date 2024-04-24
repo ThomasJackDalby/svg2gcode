@@ -1,6 +1,5 @@
-﻿using Svg2Gcode.Spatial;
+﻿using Dalby.Maths.Geometry;
 using System.Xml.Linq;
-using Utils.Spatial;
 
 namespace Svg2Gcode.Svg
 {

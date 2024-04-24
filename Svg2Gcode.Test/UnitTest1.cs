@@ -1,8 +1,7 @@
+using Dalby.Common.Extensions;
 using Dalby.GCode;
-using GCode.Statements;
-using Svg2Gcode.Extensions;
+using Dalby.GCode.Statements;
 using Svg2Gcode.Svg;
-using System.Reflection.Metadata;
 
 namespace Svg2Gcode.Test
 {

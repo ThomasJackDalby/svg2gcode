@@ -1,8 +1,7 @@
 ﻿using Dalby.GCode;
-using GCode.Statements;
-using GCode.Trivias;
-using Svg2Gcode.Spatial;
-using Utils.Spatial;
+using Dalby.GCode.Statements;
+using Dalby.GCode.Trivias;
+using Dalby.Maths.Geometry;
 
 namespace Svg2Gcode
 {

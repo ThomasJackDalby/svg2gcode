@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GCode\GCode\GCode.csproj" />
     <ProjectReference Include="..\Svg2Gcode\Svg2Gcode.csproj" />
   </ItemGroup>
 
