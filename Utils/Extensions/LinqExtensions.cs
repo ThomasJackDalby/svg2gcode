@@ -1,4 +1,4 @@
-﻿namespace Svg2Gcode.Tools
+﻿namespace Utils.Extensions
 {
     //public static class GCodeCommandBuilder
     //{
@@ -15,7 +15,7 @@
         }
         public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> items)
         {
-            foreach (T item in items)
+            foreach (T? item in items)
             {
                 if (item is not null) yield return item;
             }

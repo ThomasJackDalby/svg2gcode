@@ -1,8 +1,10 @@
-﻿using System.Xml.Linq;
-using Svg2Gcode.Svg;
+﻿using Svg2Gcode.Svg;
+using Svg2Gcode.Tools;
+using System.Xml.Linq;
 
 public class SvgDocument
 {
+    public string Name { get; } = "Test SVG Document";
     public List<Element> Elements { get; } = new();
 
     public IEnumerable<Shape> GetShapes()
@@ -16,11 +18,10 @@ public class SvgDocument
 
     public void Save(string filePath)
     {
-        throw new NotImplementedException();
-
-        //PathShapeFormatter formatter = new();
-        //string data = formatter.Format(svgDocument.Elements.OfType<PathShape>().First());
-        //File.WriteAllText("data.txt", data);
+        if (!filePath.EndsWith(".svg")) filePath += ".svg";
+        PathShapeFormatter formatter = new();
+        string data = formatter.Format(Elements.OfType<PathShape>().First());
+        File.WriteAllText(filePath, data);
     }
 
     public static SvgDocument? Load(string filePath)
@@ -38,6 +39,8 @@ public class SvgDocument
             Element? element = null;
             if (xElement.Name.LocalName == "path") element = PathShape.From(xElement);
             else if (xElement.Name.LocalName == "line") element = LineShape.From(xElement);
+            else if (xElement.Name.LocalName == "rect") element = RectangleShape.From(xElement);
+            
 
             if (element is not null) svgDocument.Elements.Add(element);
         }

@@ -1,4 +1,5 @@
-﻿using Svg2Gcode.Tools;
+﻿using Svg2Gcode.Spatial;
+using Utils.Spatial;
 
 namespace Svg2Gcode.Svg.Paths
 {

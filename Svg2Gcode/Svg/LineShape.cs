@@ -1,5 +1,6 @@
-﻿using Svg2Gcode.Tools;
+﻿using Svg2Gcode.Spatial;
 using System.Xml.Linq;
+using Utils.Spatial;
 
 namespace Svg2Gcode.Svg
 {
@@ -14,12 +15,7 @@ namespace Svg2Gcode.Svg
         {
             yield return new Path2D(new Vector2D(X1, Y1), new Vector2D(X2, Y2));
         }
-        public override IEnumerable<Segment2D>? Intersect(Segment2D segment)
-        {
-            // No masking required
-            return null;
-        }
-
+        public override IEnumerable<Path2D>? Intersect(Segment2D segment) => null; // No masking required
         public static LineShape? From(XElement xElement)
         {
             LineShape shape = new();
