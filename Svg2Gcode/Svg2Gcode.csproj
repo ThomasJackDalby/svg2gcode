@@ -13,10 +13,4 @@
     <ProjectReference Include="..\GCode\Utilities\Dalby.Maths\Dalby.Maths.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="house.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

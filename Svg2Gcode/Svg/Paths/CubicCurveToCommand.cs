@@ -1,5 +1,6 @@
 ﻿using Dalby.Maths.Geometry;
 using Svg2Gcode.Tools;
+using System.ComponentModel.Design;
 
 namespace Svg2Gcode.Svg.Paths
 {

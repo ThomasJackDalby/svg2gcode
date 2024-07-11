@@ -11,6 +11,7 @@ namespace Svg2Gcode.Svg.Paths
             new CommandParser<double>('h', (r, a) => new HorizontalLineToCommand(a, r)),
             new CommandParser<double>('v', (r, a) => new VerticalLineToCommand(a, r)),
             new CommandParser<double, double, double, double, double, double>('c', (r, a, b, c, d, e, f) => new CubicCurveToCommand(a, b, c, d, e, f, r)),
+            new CommandParser<double, double, double, double, double, double, double>('a', (r, rX, rY, rot, fS, fA, x, y) => new ArcToCommand(rX, rY, rot, fS, fA, x, y, r)),
             new CommandParser('z', r => new CloseCommand())
         };
 
@@ -59,6 +60,8 @@ namespace Svg2Gcode.Svg.Paths
 
             // do last 
             {
+                arguments.Add(builder.ToString());
+
                 ICommandParser parser = getParser(previousCommandKey);
                 foreach (PathCommand command in parser.Parse(previousCommandKey, arguments)) yield return command;
             }
@@ -128,6 +131,27 @@ namespace Svg2Gcode.Svg.Paths
                 T5 a5 = (T5)Convert.ChangeType(arguments[4], typeof(T5));
                 T6 a6 = (T6)Convert.ChangeType(arguments[5], typeof(T6));
                 return parser(isRelative, a1, a2, a3, a4, a5, a6);
+            }
+        }
+        public class CommandParser<T1, T2, T3, T4, T5, T6, T7> : BaseCommandParser
+        {
+            private readonly Func<bool, T1, T2, T3, T4, T5, T6, T7, PathCommand> parser;
+            public CommandParser(char key, Func<bool, T1, T2, T3, T4, T5, T6, T7, PathCommand> parser)
+                : base(key, 7)
+            {
+                this.parser = parser;
+            }
+
+            protected override PathCommand Parse(bool isRelative, object[] arguments)
+            {
+                T1 a1 = (T1)Convert.ChangeType(arguments[0], typeof(T1));
+                T2 a2 = (T2)Convert.ChangeType(arguments[1], typeof(T2));
+                T3 a3 = (T3)Convert.ChangeType(arguments[2], typeof(T3));
+                T4 a4 = (T4)Convert.ChangeType(arguments[3], typeof(T4));
+                T5 a5 = (T5)Convert.ChangeType(arguments[4], typeof(T5));
+                T6 a6 = (T6)Convert.ChangeType(arguments[5], typeof(T6));
+                T7 a7 = (T7)Convert.ChangeType(arguments[6], typeof(T7));
+                return parser(isRelative, a1, a2, a3, a4, a5, a6, a7);
             }
         }
         public abstract class BaseCommandParser : ICommandParser

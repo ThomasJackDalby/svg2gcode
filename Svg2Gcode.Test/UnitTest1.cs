@@ -10,7 +10,7 @@ namespace Svg2Gcode.Test
         [Fact]
         public void Test1()
         {
-            string filePath = "house.svg";
+            string filePath = "DataSources/recaman.svg";
 
             // Load SVG document
             SvgDocument? svgDocument = SvgDocument.Load(filePath);
@@ -26,8 +26,7 @@ namespace Svg2Gcode.Test
         public void Test2()
         {
             // Assemble
-
-            SvgDocument svgDocument = new SvgDocument();
+            SvgDocument svgDocument = new();
             svgDocument.Elements.Add(new RectangleShape { X = 0, Y = 0, Width = 100, Height = 200 });
 
             // Action

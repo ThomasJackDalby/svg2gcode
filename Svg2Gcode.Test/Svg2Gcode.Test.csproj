@@ -27,4 +27,13 @@
     <ProjectReference Include="..\Svg2Gcode\Svg2Gcode.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="DataSources\house.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="DataSources\recaman.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
