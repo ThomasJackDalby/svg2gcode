@@ -39,6 +39,10 @@ namespace Svg2Gcode.Svg.Paths
                 skipWhiteSpace = false;
                 if (char.IsLetter(commandKey) && commandKey != 'e') // new command
                 {
+                    var arg = builder.ToString();
+                    if (!string.IsNullOrEmpty(arg))
+                        arguments.Add(arg);
+
                     if (i > 0) // process the previous command
                     {
                         ICommandParser parser = getParser(previousCommandKey);
@@ -47,6 +51,7 @@ namespace Svg2Gcode.Svg.Paths
 
                     previousCommandKey = commandKey;
                     arguments.Clear();
+                    builder.Clear();
                     skipWhiteSpace = true;
                 }
                 else if (commandKey == ' ' || commandKey == ',')
