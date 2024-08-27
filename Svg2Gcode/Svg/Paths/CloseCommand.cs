@@ -6,7 +6,7 @@ namespace Svg2Gcode.Svg.Paths
     {
         public override IEnumerable<(bool, Path2D)> GetPaths(Vector2D pathStart, Vector2D commandStart)
         {
-            yield return (true, new Path2D(commandStart, pathStart));
+            yield return (false, new Path2D(commandStart, pathStart));
         }
     }
 }
