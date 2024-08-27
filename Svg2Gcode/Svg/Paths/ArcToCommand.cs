@@ -27,14 +27,15 @@ namespace Svg2Gcode.Svg.Paths
         public override IEnumerable<(bool, Path2D)> GetPaths(Vector2D commandStart, Vector2D start)
         {
             Arc arc = Arc.From(start, new(X, Y), new(RadiusX, RadiusY), Rotation, LargeArcFlag == 1, SweepFlag == 1);
-            Vector2D[] points = arc.GetPoints(50);
+            Vector2D[] points = arc.GetPoints(25);
             yield return (true, new(points));
         }
 
         private static double angle(Vector2D a, Vector2D b)
         {
-            int sign = Math.Sign(a.X * b.Y - a.Y * b.X);
-            return sign * Math.Acos(a.Dot(b) / (a.Abs() * b.Abs()));
+            double sign = a.X * b.Y - a.Y * b.X;
+            double acos = Math.Acos(a.Dot(b) / (a.Abs() * b.Abs()));
+            return Math.CopySign(acos, sign);
         }
 
         public record Arc
@@ -56,7 +57,7 @@ namespace Svg2Gcode.Svg.Paths
                 StartAngle = startAngle;
                 EndAngle = endAngle;
                 cosPsi = Math.Cos(Rotation);
-                sinPsi = Math.Cos(Rotation);
+                sinPsi = Math.Sin(Rotation);
             }
 
             public Vector2D GetPoint(double theta)
@@ -99,7 +100,7 @@ namespace Svg2Gcode.Svg.Paths
 
                 // step 2
                 double rX = radius.X;
-                double rY = radius.X;
+                double rY = radius.Y;
                 double rX2 = radius.X * radius.X;
                 double rY2 = radius.Y * radius.Y;
                 double a = rX2 * rY2 - rX2 * y1P * y1P - rY2 * x1P * x1P;
@@ -111,13 +112,17 @@ namespace Svg2Gcode.Svg.Paths
                 double cYP = c * -rY * x1P / rX;
 
                 // step 3
-                double cX = cosPsi * cXP - sinPsi * cYP + dX;
-                double cY = sinPsi * cXP + cosPsi * cYP + dY;
+                double cX = cosPsi * cXP - sinPsi * cYP + (x1 + x2) / 2;
+                double cY = sinPsi * cXP + cosPsi * cYP + (y1 + y2) / 2;
 
                 Vector2D d1 = new((x1P - cXP) / rX, (y1P - cYP) / rY);
                 Vector2D d2 = new((-x1P - cXP) / rX, (-y1P - cYP) / rY);
                 double startAngle = angle(new(1, 0), d1);
-                double dAngle = angle(d1, d2) % (Math.PI * 2);
+                double dAngle = angle(d1, d2);
+
+                if (!sweepFlag && dAngle > 0) dAngle -= Math.PI * 2;
+                else if (sweepFlag && dAngle < 0) dAngle += Math.PI * 2;
+  
                 double endAngle = startAngle + dAngle;
 
                 return new Arc(new(cX, cY), radius, rotation, startAngle, endAngle);
