@@ -131,7 +131,7 @@ This is an example of how to list things you need to use the software and how to
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+<!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -145,7 +145,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Feature 3
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/thomasjackdalby/svg2gcode/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -169,8 +169,8 @@ Don't forget to give the project a star! Thanks again!
 
 ### Top contributors:
 
-<a href="https://github.com/github_username/repo_name/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
+<a href="https://github.com/thomasjackdalby/svg2gcode/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=thomasjackdalby/svg2gcode" alt="contrib.rocks image" />
 </a>
 
 
@@ -178,7 +178,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -189,7 +189,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/thomasjackdalby/svg2gcode](https://github.com/thomasjackdalby/svg2gcode)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -208,7 +208,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/thomasjackdalby/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/thomasjackdalby/svg2gcode.svg?style=for-the-badge
 [contributors-url]: https://github.com/thomasjackdalby/svg2gcode/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/thomasjackdalby/svg2gcode.svg?style=for-the-badge
 [forks-url]: https://github.com/thomasjackdalby/svg2gcode/network/members
@@ -217,9 +217,9 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [issues-shield]: https://img.shields.io/github/issues/thomasjackdalby/svg2gcode.svg?style=for-the-badge
 [issues-url]: https://github.com/thomasjackdalby/svg2gcode/issues
 [license-shield]: https://img.shields.io/github/license/thomasjackdalby/svg2gcode.svg?style=for-the-badge
-[license-url]: https://github.com/thomasjackdalby/svg2gcode/blob/master/LICENSE
+[license-url]: https://github.com/thomasjackdalby/svg2gcode/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://linkedin.com/in/thomasjackdalby
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
